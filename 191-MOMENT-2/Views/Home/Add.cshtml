@@ -1,16 +1,102 @@
-﻿@model _191_MOMENT_2.Models.ErrorViewModel
+﻿@model _191_MOMENT_2.Models.ProductModel
 
 @{
     ViewData["Title"] = "Add";
 }
 
-<h1>ADD</h1>
+
+<h1 class="display-3">ADD</h1>
+<br />
+<div class="row">
+    <div class="col-md bg-dark bg-gradient text-white p-4">
+        <h2 class='display-4'>ADD PRODUCT</h2>
+        <p>
+            Add a new product article below; all fields must be filled:
+        </p>
+
+        <form method="post">
+            <div>
+                <label class="form-control-lg" asp-for="product_title"></label>
+                <br />
+                <input asp-for="product_title" class="mr-5">
+                <br />
+
+                <label class="form-control-lg" asp-for="ean_number"></label>
+                <br />
+                <input asp-for="ean_number" class="mr-5">
+                <br />
+
+                <label class="form-control-lg" asp-for="product_description"></label>
+                <br />
+                <textarea rows="3" placeholder="max 250 words" asp-for="product_description" class="mr-5"></textarea>
+                <br />
+
+                <label class="form-control-lg" asp-for="price"></label>
+                <br />
+                <input asp-for="price" class="mr-5" />
+                <br />
+
+                <label class="form-control-lg" asp-for="amount_storage"></label>
+                <br />
+                <input asp-for="amount_storage" class="mr-5" />
+                <br />
+
+                <label class="form-control-lg" asp-for="expiration_date"></label>
+                <br />
+                <input asp-for="expiration_date" class="mr-5" />
+                <br />
+
+                <label class="form-control-lg" asp-for="category"></label>
+                <br />
+                <select asp-for="category" asp-items="Html.GetEnumSelectList<ProductSize>()" class="mr-5"></select>
+                <br />
+
+                <label class="form-control-lg" asp-for="isSwedish"></label>
+                <br />
+                <input asp-for="isSwedish" class="ckbox">
+                <br /><br />
+
+                <input type="submit" class="btn btn-primary" value="Add!">
+            </div>
+            <br />
+            <div asp-validation-summary="All"></div>
+        </form>
+    </div>
 
 
 
 
-<style>
-    .add {
-        background-color: lightgray;
-    }
-</style>
+    <style>
+        .add {
+            background-color: lightgray;
+        }
+
+        input.ckbox {
+            width: 25px;
+            height: 25px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 1.8em;
+        }
+
+
+        h3 {
+            font-size: 2.2em;
+        }
+
+
+        strong, label {
+            font-size: 1.35em;
+        }
+
+        .col-md {
+            text-align: center;
+        }
+    </style>
+    </style>

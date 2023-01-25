@@ -17,7 +17,7 @@ namespace _191_MOMENT_2.Controllers
 
 
 
-        //--VIEWS AND ROUTES
+        //--VIEWS AND ROUTES ACTIONS
 
         //control route directly with [Route]
         //name same view folder as controller name standard = Home -> Home, then no
@@ -44,7 +44,25 @@ namespace _191_MOMENT_2.Controllers
             return View();
         }
 
+
+
+        //--HTTPS ACTIONS
         
+        //listen only to post calls
+        [HttpPost("/add")]
+        //use product model at post
+        public IActionResult Add(ProductModel model)
+        {
+            //control if form´is correctly filled
+            if(ModelState.IsValid)
+            {
+                //correct
+            }
+
+            return View();
+        }
+
+
         
         //--ERROR MANAGEMENT
 
