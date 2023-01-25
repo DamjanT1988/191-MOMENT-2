@@ -1,6 +1,6 @@
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+//add services to the container, activate MVC
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -14,8 +14,9 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-app.UseStaticFiles();
 
+//wwwroot files
+app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();

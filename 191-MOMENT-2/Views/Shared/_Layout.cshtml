@@ -4,48 +4,57 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Migyston Intranet</title>
+    <link rel="icon" href="~/assets/favicon.ico" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/_191_MOMENT_2.styles.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Migyston Intranet</a>
+        <div class="container top">
+            <img src='~/assets/MGG-logotype.jpg' class="img-fluid img" id="figure" asp-append-version="true" onclick="animateFigure()" />
+            <div class="datetop"> Today's date: @DateTime.Now.ToString("yyy/MM/dd") </div>
+        </div>
+    </header>
+
+    <div class="container d-sm-inline-flex center">
+
+
+        <sidebar>
+            <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white box-shadow mb-3">
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="nav navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                            <a class="nav-link text-dark start" asp-area="" asp-controller="Home" asp-action="Index">Start</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Add">Add</a>
+                            <a class="nav-link text-dark add" asp-area="" asp-controller="Home" asp-action="Add">Add</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Edit">Edit</a>
+                            <a class="nav-link text-dark edit" asp-area="" asp-controller="Home" asp-action="Edit">Edit</a>
                         </li>
                     </ul>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
+            </nav>
+        </sidebar>
+
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
+
     </div>
 
-    <footer class="text-center font-weight-bolder">
+
+    <footer class="text-center footer text-muted">
         <div class="container">
-            <img src='~/Assets/MGG-logotype.jpg' class="img-fluid" asp-append-version="true" />
-            <br />
-            Created by Damjan Tosic at MIUN 2022/2023
+            &copy; Damjan Tosic 2023 - <a href='mailto:dato1700@student.miun.se'>Contac me!</a>
         </div>
     </footer>
+
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
