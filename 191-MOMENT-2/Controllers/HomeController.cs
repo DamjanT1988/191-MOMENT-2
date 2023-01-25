@@ -1,6 +1,17 @@
 ﻿using _191_MOMENT_2.Models;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using System.Text.Json;
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.Json.Serialization;
+using System.Runtime.Intrinsics.X86;
+using System.Net.Http.Json;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 
 namespace _191_MOMENT_2.Controllers
 {
@@ -34,7 +45,12 @@ namespace _191_MOMENT_2.Controllers
         //to page/view
         public IActionResult Add()
         {
-            return View();
+            //read text from file, store in a variable as JSON-string
+            var jsonString = System.IO.File.ReadAllText(Directory.GetCurrentDirectory().ToString() + "/productstorage.json");
+            //convert to list based on model, to loop through, then input json string
+            var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
+
+            return View(jsonObject);
         }
 
         [Route("/edit")]
@@ -56,7 +72,24 @@ namespace _191_MOMENT_2.Controllers
             //control if form´is correctly filled
             if(ModelState.IsValid)
             {
-                //correct
+                //correct filled
+                //read text from file, store in a variable as JSON-string
+                var jsonString = System.IO.File.ReadAllText(Directory.GetCurrentDirectory().ToString() + "/productstorage.json");
+                //convert to list based on model, to loop through, then input json string
+                var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
+                
+                //control
+                if(jsonObject != null)
+                {
+                    //add json object at bottom of list
+                    jsonObject.Add(model);
+                    //write the JSON list to a file
+                    System.IO.File.WriteAllText(@Directory.GetCurrentDirectory().ToString() + "/productstorage.json", JsonConvert.SerializeObject(jsonObject, Formatting.Indented));
+                    //clear form
+                    ModelState.Clear();
+                
+                }
+
             }
 
             return View();

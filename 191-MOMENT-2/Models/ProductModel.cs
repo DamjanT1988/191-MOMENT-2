@@ -12,7 +12,7 @@ namespace _191_MOMENT_2.Models
         public int id { get; set; }
 
         //required to fill in to form
-        [Required(ErrorMessage = "Please fill in the product name!")]
+        [Required(ErrorMessage = "Please fill in the product title!")]
         //display specific name
         [Display(Name = "Product title:")]
         public string? product_title { get; set; }
@@ -23,10 +23,10 @@ namespace _191_MOMENT_2.Models
         [Display(Name = "Description:")]
         [MaxLength(250)]
         public string? product_description { get; set; }
-        [Required(ErrorMessage = "Please fill in the amount in storage now!")]
+        [Required(ErrorMessage = "Please fill in the amount in storage!")]
         [Display(Name = "Amount storage:")]
         public int? amount_storage { get; set; }
-        [Required(ErrorMessage = "Please fill in the price, in SEK!")]
+        [Required(ErrorMessage = "Please fill in the price (in SEK!)")]
         [Display(Name = "Price (SEK):")]
         public decimal? price { get; set; }
         [Required(ErrorMessage = "Please fill in the earliest expiration date!")]
