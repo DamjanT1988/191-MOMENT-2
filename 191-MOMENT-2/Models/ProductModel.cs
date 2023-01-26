@@ -9,6 +9,9 @@ namespace _191_MOMENT_2.Models
     public class ProductModel
     {
         //properties (data fields)
+        [Required(ErrorMessage = "Please fill in an article number!")]
+        //display specific name
+        [Display(Name = "Unique article number:")]
         public int id { get; set; }
 
         //required to fill in to form

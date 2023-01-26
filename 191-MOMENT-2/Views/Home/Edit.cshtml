@@ -18,36 +18,36 @@
         {
             <form method="post" id="@product.id">
                 <div>
-                    <input type="hidden" value="@product.id">
+                    <input type="hidden" asp-for="id" value="@product.id">
 
                     <label class="form-control-lg" asp-for="product_title"></label>
                     <br />
-                    <input asp-for="product_title" class="mr-5" value="@product.product_title">
+                    <input asp-for="product_title" class="mr-5" value="@product.product_title" />
                     <br />
 
                     <label class="form-control-lg" asp-for="ean_number"></label>
                     <br />
-                    <input asp-for="ean_number" class="mr-5">
+                    <input asp-for="ean_number" class="mr-5" value="@product.ean_number" />
                     <br />
 
                     <label class="form-control-lg" asp-for="product_description"></label>
                     <br />
-                    <textarea rows="3" placeholder="max 250 words" asp-for="product_description" class="mr-5"></textarea>
+                    <textarea rows="3" placeholder="max 250 words" asp-for="product_description" class="mr-5" value="@product.product_description"></textarea>
                     <br />
 
                     <label class="form-control-lg" asp-for="price"></label>
                     <br />
-                    <input asp-for="price" class="mr-5" />
+                    <input asp-for="price" class="mr-5" value="@product.price" />
                     <br />
 
                     <label class="form-control-lg" asp-for="amount_storage"></label>
                     <br />
-                    <input asp-for="amount_storage" class="mr-5" />
+                    <input asp-for="amount_storage" class="mr-5" value="@product.amount_storage" />
                     <br />
 
                     <label class="form-control-lg" asp-for="expiration_date"></label>
                     <br />
-                    <input asp-for="expiration_date" class="mr-5" />
+                    <input asp-for="expiration_date" class="mr-5" value="@product.expiration_date" />
                     <br />
 
                     <label class="form-control-lg" asp-for="category"></label>
@@ -57,7 +57,14 @@
 
                     <label class="form-control-lg" asp-for="isSwedish"></label>
                     <br />
-                    <input asp-for="isSwedish" class="ckbox">
+                    @if (product.isSwedish == true)
+                    {
+                        <input type="checkbox" asp-for="isSwedish" class="ckbox" checked>
+                    }
+                    else
+                    {
+                        <input type="checkbox" asp-for="isSwedish" class="ckbox">
+                    }
                     <br /><br />
 
                     <input id="@product.id" type="submit" class="btn btn-primary" value="Add!">

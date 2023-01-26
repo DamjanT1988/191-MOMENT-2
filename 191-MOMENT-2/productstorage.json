@@ -130,5 +130,16 @@
     "expiration_date": "2",
     "category": 0,
     "isSwedish": false
+  },
+  {
+    "id": 555,
+    "product_title": "5",
+    "ean_number": "5",
+    "product_description": "5",
+    "amount_storage": 5,
+    "price": 5.0,
+    "expiration_date": "5",
+    "category": 0,
+    "isSwedish": false
   }
 ]
