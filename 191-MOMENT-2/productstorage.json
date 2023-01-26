@@ -108,5 +108,27 @@
     "expiration_date": "1",
     "category": 0,
     "isSwedish": false
+  },
+  {
+    "id": 0,
+    "product_title": "1",
+    "ean_number": "1",
+    "product_description": "1",
+    "amount_storage": 1,
+    "price": 1.0,
+    "expiration_date": "1",
+    "category": 0,
+    "isSwedish": false
+  },
+  {
+    "id": 0,
+    "product_title": "8888",
+    "ean_number": "2",
+    "product_description": "2",
+    "amount_storage": 2,
+    "price": 2.0,
+    "expiration_date": "2",
+    "category": 0,
+    "isSwedish": false
   }
 ]

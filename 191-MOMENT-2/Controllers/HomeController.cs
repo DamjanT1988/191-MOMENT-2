@@ -68,7 +68,6 @@ namespace _191_MOMENT_2.Controllers
             //convert to list based on model, to loop through, then input json string
             var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
 
-
             ViewData["List"] = jsonObject;
 
             return View();
@@ -83,8 +82,7 @@ namespace _191_MOMENT_2.Controllers
         //use product model at post
         public IActionResult Add(ProductModel model)
         {
-            //return list to edit
-            ViewBag.MyList = "";
+
 
             //control if form´is correctly filled
             if (ModelState.IsValid)
@@ -94,9 +92,12 @@ namespace _191_MOMENT_2.Controllers
                 var jsonString = System.IO.File.ReadAllText(Directory.GetCurrentDirectory().ToString() + "/productstorage.json");
                 //convert to list based on model, to loop through, then input json string
                 var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
-                
+
+                //return list
+                ViewBag.MyList = jsonObject;
+
                 //control
-                if(jsonObject != null)
+                if (jsonObject != null)
                 {
                     //add json object at bottom of list
                     jsonObject.Add(model);
@@ -125,6 +126,9 @@ namespace _191_MOMENT_2.Controllers
                 var jsonString = System.IO.File.ReadAllText(Directory.GetCurrentDirectory().ToString() + "/productstorage.json");
                 //convert to list based on model, to loop through, then input json string
                 var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
+
+                //return list
+                ViewData["List"] = jsonObject;
 
                 //control
                 if (jsonObject != null)
