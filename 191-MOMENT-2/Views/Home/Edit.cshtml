@@ -1,10 +1,13 @@
-﻿@{
+﻿@model List<_191_MOMENT_2.Models.ProductModel>
+@{
     ViewData["Title"] = "Edit";
 }
 
 <h1>EDIT</h1>
 
-
+@foreach(var product in Model) {
+     @product.product_title<br />
+}
 
 
 

@@ -45,19 +45,19 @@ namespace _191_MOMENT_2.Controllers
         //to page/view
         public IActionResult Add()
         {
-            //read text from file, store in a variable as JSON-string
-            var jsonString = System.IO.File.ReadAllText(Directory.GetCurrentDirectory().ToString() + "/productstorage.json");
-            //convert to list based on model, to loop through, then input json string
-            var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
-
-            return View(jsonObject);
+            return View();
         }
 
         [Route("/edit")]
         //to page/view
         public IActionResult Edit()
         {
-            return View();
+            //read text from file, store in a variable as JSON-string
+            var jsonString = System.IO.File.ReadAllText(Directory.GetCurrentDirectory().ToString() + "/productstorage.json");
+            //convert to list based on model, to loop through, then input json string
+            var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
+
+            return View(jsonObject);
         }
 
 
