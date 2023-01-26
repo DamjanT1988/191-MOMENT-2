@@ -28,7 +28,7 @@ namespace _191_MOMENT_2.Models
         public int? amount_storage { get; set; }
         [Required(ErrorMessage = "Please fill in the price (in SEK!)")]
         [Display(Name = "Price (SEK):")]
-        public decimal? price { get; set; }
+        public double? price { get; set; }
         [Required(ErrorMessage = "Please fill in the earliest expiration date!")]
         [Display(Name = "Expiration date:")]
         public string? expiration_date { get; set; }

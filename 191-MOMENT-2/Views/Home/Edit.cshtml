@@ -14,10 +14,12 @@
             Add a new product article below; all fields must be filled:
         </p>
 
-        @foreach (var product in ViewBag.MyList)
+        @foreach (var product in (List<ProductModel>)ViewData["List"])
         {
-            <form method="post">
+            <form method="post" id="@product.id">
                 <div>
+                    <input type="hidden" value="@product.id">
+
                     <label class="form-control-lg" asp-for="product_title"></label>
                     <br />
                     <input asp-for="product_title" class="mr-5" value="@product.product_title">
@@ -58,7 +60,7 @@
                     <input asp-for="isSwedish" class="ckbox">
                     <br /><br />
 
-                    <input type="submit" class="btn btn-primary" value="Add!">
+                    <input id="@product.id" type="submit" class="btn btn-primary" value="Add!">
                 </div>
                 <br />
                 <div asp-validation-summary="All"></div>

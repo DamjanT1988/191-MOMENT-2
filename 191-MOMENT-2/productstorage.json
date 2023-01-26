@@ -1,6 +1,6 @@
 [
   {
-    "id": 0,
+    "id": 1,
     "product_title": "99",
     "ean_number": "9",
     "product_description": "9",
@@ -11,7 +11,7 @@
     "isSwedish": false
   },
   {
-    "id": 0,
+    "id": 2,
     "product_title": "66",
     "ean_number": "66",
     "product_description": "66",
@@ -22,7 +22,18 @@
     "isSwedish": false
   },
   {
-    "id": 0,
+    "id": 3,
+    "product_title": "7",
+    "ean_number": "7",
+    "product_description": "7",
+    "amount_storage": 7,
+    "price": 7.0,
+    "expiration_date": "7",
+    "category": 0,
+    "isSwedish": false
+  },
+  {
+    "id": 4,
     "product_title": "7",
     "ean_number": "7",
     "product_description": "7",
@@ -34,12 +45,67 @@
   },
   {
     "id": 0,
-    "product_title": "7",
-    "ean_number": "7",
-    "product_description": "7",
+    "product_title": "99",
+    "ean_number": "7777",
+    "product_description": "777",
+    "amount_storage": 777777,
+    "price": 7777777.0,
+    "expiration_date": "77777",
+    "category": 0,
+    "isSwedish": false
+  },
+  {
+    "id": 0,
+    "product_title": "99",
+    "ean_number": "7777",
+    "product_description": "777",
+    "amount_storage": 777777,
+    "price": 7777777.0,
+    "expiration_date": "77777",
+    "category": 0,
+    "isSwedish": false
+  },
+  {
+    "id": 0,
+    "product_title": "99",
+    "ean_number": "77",
+    "product_description": "777777",
     "amount_storage": 7,
-    "price": 7.0,
-    "expiration_date": "7",
+    "price": 77.0,
+    "expiration_date": "77",
+    "category": 0,
+    "isSwedish": false
+  },
+  {
+    "id": 0,
+    "product_title": "9",
+    "ean_number": "9",
+    "product_description": "9",
+    "amount_storage": 9,
+    "price": 9.0,
+    "expiration_date": "9",
+    "category": 0,
+    "isSwedish": false
+  },
+  {
+    "id": 0,
+    "product_title": "uuhhu",
+    "ean_number": "dr",
+    "product_description": "1",
+    "amount_storage": 1,
+    "price": 1.0,
+    "expiration_date": "1",
+    "category": 0,
+    "isSwedish": false
+  },
+  {
+    "id": 0,
+    "product_title": "1",
+    "ean_number": "1",
+    "product_description": "1",
+    "amount_storage": 1,
+    "price": 1.0,
+    "expiration_date": "1",
     "category": 0,
     "isSwedish": false
   }
