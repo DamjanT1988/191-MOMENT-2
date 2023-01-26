@@ -57,7 +57,10 @@ namespace _191_MOMENT_2.Controllers
             //convert to list based on model, to loop through, then input json string
             var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
 
-            return View(jsonObject);
+            //return list to edit
+            ViewBag.MyList = jsonObject;
+
+            return View();
         }
 
 
