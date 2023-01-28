@@ -1,4 +1,6 @@
-﻿@{
+﻿@model _191_MOMENT_2.Models.ProductModel
+
+@{
     //Layout = "_IndexLayout" //specific layout
     ViewData["Title"] = "Start";
 }
@@ -12,9 +14,14 @@
     </p>
 </div>
 
+<p>
+    Test of passing parameter: @Model.product_title
+</p>
 
 
-
+<p>
+    By visiting this page, a session is started and a value set.
+</p>
 
 <style>
     .start {

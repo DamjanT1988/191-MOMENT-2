@@ -13,6 +13,7 @@ using System.Net.Http.Json;
 using Newtonsoft.Json.Linq;
 using Newtonsoft.Json;
 using System.Text.Json.Nodes;
+using System.Reflection;
 
 namespace _191_MOMENT_2.Controllers
 {
@@ -20,14 +21,7 @@ namespace _191_MOMENT_2.Controllers
     public class HomeController : Controller
     {
         //--CONSTRUCTORS
-        /*private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
-        {
-            _logger = logger;
-        }*/
-
-
+       
 
         //--VIEWS AND ROUTES ACTIONS
 
@@ -38,8 +32,12 @@ namespace _191_MOMENT_2.Controllers
         //to page/view
         public IActionResult Index()
         {
+            //set session value
+            HttpContext.Response.Cookies.Append("UserToken", "753951");
+            HttpContext.Session.SetString("Session1", "the user has visited start page!");
+
             //must return av view
-            return View();
+            return View(new ProductModel { product_title = "Test 1" });
         }
 
         //[Route("/add")]
@@ -47,6 +45,11 @@ namespace _191_MOMENT_2.Controllers
         //to page/view
         public IActionResult Add()
         {
+            //get session value
+            string userToken = HttpContext.Request.Cookies["UserToken"];
+            ViewBag.cookiecontent = userToken;
+            ViewBag.sessioncontent = HttpContext.Session.GetString("Session1");
+
             //read text from file, store in a variable as JSON-string
             var jsonString = System.IO.File.ReadAllText(Directory.GetCurrentDirectory().ToString() + "/productstorage.json");
             //convert to list based on model, to loop through, then input json string
