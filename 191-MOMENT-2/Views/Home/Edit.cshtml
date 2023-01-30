@@ -17,6 +17,7 @@
         @foreach (var product in (List<ProductModel>)ViewData["List"])
         {
             <form method="post" id="@product.id">
+                <div asp-validation-summary="All"></div>
                 <div>
                     <input type="hidden" asp-for="id" value="@product.id">
 
@@ -70,7 +71,6 @@
                     <input id="@product.id" type="submit" class="btn btn-primary" value="Add!">
                 </div>
                 <br />
-                <div asp-validation-summary="All"></div>
             </form>
             <hr />
         }
