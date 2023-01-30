@@ -32,7 +32,7 @@ namespace _191_MOMENT_2.Controllers
         //to page/view
         public IActionResult Index()
         {
-            //set session value
+            //set cookie and session value
             HttpContext.Response.Cookies.Append("UserToken", "753951");
             HttpContext.Session.SetString("Session1", "the user has visited start page!");
 
