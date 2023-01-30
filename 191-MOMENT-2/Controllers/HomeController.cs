@@ -124,6 +124,8 @@ namespace _191_MOMENT_2.Controllers
         //use product model at post
         public IActionResult Edit(ProductModel model)
         {
+
+
             //control if form´is correctly filled
             if (ModelState.IsValid)
             {
@@ -132,6 +134,7 @@ namespace _191_MOMENT_2.Controllers
                 var jsonString = System.IO.File.ReadAllText(Directory.GetCurrentDirectory().ToString() + "/productstorage.json");
                 //convert to list based on model, to loop through, then input json string
                 var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
+
 
                 //control
                 if (jsonObject != null)
@@ -153,9 +156,7 @@ namespace _191_MOMENT_2.Controllers
                     //return list
                     ViewData["List"] = jsonObject2;
                 }
-
             }
-
             return View();
         }
 
