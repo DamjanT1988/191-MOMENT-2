@@ -2,7 +2,6 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using System.Text.Json;
-
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -92,7 +91,6 @@ namespace _191_MOMENT_2.Controllers
         public IActionResult Add(ProductModel model)
         {
 
-
             //control if form´is correctly filled
             if (ModelState.IsValid)
             {
@@ -111,11 +109,8 @@ namespace _191_MOMENT_2.Controllers
                     System.IO.File.WriteAllText(@Directory.GetCurrentDirectory().ToString() + "/productstorage.json", JsonConvert.SerializeObject(jsonObject, Formatting.Indented));
                     //clear form
                     ModelState.Clear();
-                
                 }
-
             }
-
             return View();
         }
 
@@ -133,7 +128,6 @@ namespace _191_MOMENT_2.Controllers
                 var jsonString = System.IO.File.ReadAllText(Directory.GetCurrentDirectory().ToString() + "/productstorage.json");
                 //convert to list based on model, to loop through, then input json string
                 var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
-
 
                 //control
                 if (jsonObject != null)
