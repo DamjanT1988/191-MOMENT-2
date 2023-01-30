@@ -141,5 +141,38 @@
     "expiration_date": "5",
     "category": 0,
     "isSwedish": false
+  },
+  {
+    "id": 7888,
+    "product_title": "777",
+    "ean_number": "777",
+    "product_description": "77",
+    "amount_storage": 7,
+    "price": 7.0,
+    "expiration_date": "7",
+    "category": 0,
+    "isSwedish": false
+  },
+  {
+    "id": 7888,
+    "product_title": "777",
+    "ean_number": "777",
+    "product_description": "77",
+    "amount_storage": 7,
+    "price": 7.0,
+    "expiration_date": "7",
+    "category": 0,
+    "isSwedish": false
+  },
+  {
+    "id": 7888,
+    "product_title": "777",
+    "ean_number": "777",
+    "product_description": "77",
+    "amount_storage": 7,
+    "price": 7.0,
+    "expiration_date": "7",
+    "category": 0,
+    "isSwedish": false
   }
 ]

@@ -55,6 +55,9 @@ namespace _191_MOMENT_2.Controllers
             //convert to list based on model, to loop through, then input json string
             var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
 
+            //reverse order
+            jsonObject.Reverse();
+
             //return list to edit
             ViewBag.MyList = jsonObject;
             
@@ -70,6 +73,9 @@ namespace _191_MOMENT_2.Controllers
             var jsonString = System.IO.File.ReadAllText(Directory.GetCurrentDirectory().ToString() + "/productstorage.json");
             //convert to list based on model, to loop through, then input json string
             var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
+
+            //reverse order
+            jsonObject.Reverse();
 
             ViewData["List"] = jsonObject;
 
@@ -129,6 +135,9 @@ namespace _191_MOMENT_2.Controllers
                 var jsonString = System.IO.File.ReadAllText(Directory.GetCurrentDirectory().ToString() + "/productstorage.json");
                 //convert to list based on model, to loop through, then input json string
                 var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
+
+                //reverse order
+                jsonObject.Reverse();
 
                 //return list
                 ViewData["List"] = jsonObject;
