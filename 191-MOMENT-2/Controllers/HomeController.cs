@@ -36,6 +36,17 @@ namespace _191_MOMENT_2.Controllers
             HttpContext.Response.Cookies.Append("UserToken", "753951");
             HttpContext.Session.SetString("Session1", "the user has visited start page!");
 
+            //read text from file, store in a variable as JSON-string
+            var jsonString = System.IO.File.ReadAllText(Directory.GetCurrentDirectory().ToString() + "/productstorage.json");
+            //convert to list based on model, to loop through, then input json string
+            var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
+
+            //reverse order
+            jsonObject.Reverse();
+
+            //return list to edit
+            ViewBag.MyList = jsonObject;
+
             //must return av view
             return View(new ProductModel { product_title = "Test 1" });
         }
@@ -49,17 +60,6 @@ namespace _191_MOMENT_2.Controllers
             string userToken = HttpContext.Request.Cookies["UserToken"];
             ViewBag.cookiecontent = userToken;
             ViewBag.sessioncontent = HttpContext.Session.GetString("Session1");
-
-            //read text from file, store in a variable as JSON-string
-            var jsonString = System.IO.File.ReadAllText(Directory.GetCurrentDirectory().ToString() + "/productstorage.json");
-            //convert to list based on model, to loop through, then input json string
-            var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
-
-            //reverse order
-            jsonObject.Reverse();
-
-            //return list to edit
-            ViewBag.MyList = jsonObject;
             
             return View();
         }
@@ -102,9 +102,6 @@ namespace _191_MOMENT_2.Controllers
                 //convert to list based on model, to loop through, then input json string
                 var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
 
-                //return list
-                ViewBag.MyList = jsonObject;
-
                 //control
                 if (jsonObject != null)
                 {
@@ -136,12 +133,6 @@ namespace _191_MOMENT_2.Controllers
                 //convert to list based on model, to loop through, then input json string
                 var jsonObject = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString);
 
-                //reverse order
-                jsonObject.Reverse();
-
-                //return list
-                ViewData["List"] = jsonObject;
-
                 //control
                 if (jsonObject != null)
                 {
@@ -149,9 +140,18 @@ namespace _191_MOMENT_2.Controllers
                     jsonObject.Add(model);
                     //write the JSON list to a file
                     System.IO.File.WriteAllText(@Directory.GetCurrentDirectory().ToString() + "/productstorage.json", JsonConvert.SerializeObject(jsonObject, Formatting.Indented));
-                    //clear form
-                    ModelState.Clear();
 
+                    //correct filled
+                    //read text from file, store in a variable as JSON-string
+                    var jsonString2 = System.IO.File.ReadAllText(Directory.GetCurrentDirectory().ToString() + "/productstorage.json");
+                    //convert to list based on model, to loop through, then input json string
+                    var jsonObject2 = JsonConvert.DeserializeObject<List<ProductModel>>(jsonString2);
+
+                    //reverse order
+                    jsonObject2.Reverse();
+
+                    //return list
+                    ViewData["List"] = jsonObject2;
                 }
 
             }

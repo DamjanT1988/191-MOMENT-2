@@ -23,8 +23,80 @@
     By visiting this page, a session is started and a value set.
 </p>
 
+<br />
+<div class="row">
+    <div class="col-md bg-dark bg-gradient text-white p-4">
+        <h1 class='display-4'>LIST ALL PRODUCTS</h1>
+        <p>
+            Below are all products on database.
+        </p>
+
+        @foreach (var product in ViewBag.MyList)
+        {
+            <article>
+                <h3>@product.product_title <br />Article # @product.id</h3>
+
+                <br />
+                <strong>Product title:</strong>
+                <p className="list">@product.product_title</p>
+
+                <strong>Article number:</strong>
+                <p>@product.id</p>
+
+                <strong>EAN number:</strong>
+                <p>@product.ean_number</p>
+
+                <strong>Product description:</strong>
+                <p>@product.product_description</p>
+
+                <strong>Selling price:</strong>
+                <p>@($"{product.price:C}") kr</p>
+
+                <strong>Amount in storage:</strong>
+                <p id="storage">@product.amount_storage</p>
+
+                <strong>Expiration date:</strong>
+                <p>@product.expiration_date</p>
+
+                <strong>Category:</strong>
+                <p>@product.category</p>
+
+                <strong>Made in Sweden?</strong>
+                <p>@product.isSwedish</p>
+                <br /><br />
+            </article>
+            <hr />
+        }
+
+    </div>
+</div>
+
 <style>
     .start {
         background-color: lightgray;
     }
+
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        text-align: center;
+        font-size: 1.8em;
+    }
+
+
+    h3 {
+        font-size: 2.2em;
+    }
+
+
+    strong, label {
+        font-size: 1.35em;
+    }
+
+    .col-md {
+        text-align: center;
+    }
+
 </style>
